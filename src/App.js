@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Sidebar from './components/sidebar';
+import HubView from './components/hubview';
+import MainViewer from './components/mainviewer';
+import './index.css';
 
 function App() {
+  const [viewport, setViewport] = useState({
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+    imageWidth: 0,
+    imageHeight: 0,
+  });
+
+  const [cursorPosition, setCursorPosition] = useState({
+    x: 0,
+    y: 0,
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="sidebar">
+        <Sidebar />
+      </div>
+      <div className="main-view">
+        <MainViewer setViewport={setViewport} setCursorPosition={setCursorPosition} />
+      </div>
+      <div className="hub-view">
+        <HubView viewport={viewport} cursorPosition={cursorPosition} />
+      </div>
     </div>
   );
 }

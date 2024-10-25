@@ -1,13 +1,32 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.app {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 100vh;
+  gap: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.sidebar {
+  grid-column: 1 / 2;
+  background-color: #f0f0f0;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.main-view {
+  grid-column: 2 / 3;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.hub-view {
+  grid-column: 3 / 4;
+  background-color: #f9f9f9;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+#openseadragon-viewer {
+  width: 100%;
+  height: 80vh;
 }
